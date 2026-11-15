@@ -66,6 +66,10 @@ Four latent states, unbalanced panel (at least three waves), lead (timing) test,
 duration of unemployment, and GHQ-12 without the two employment-related items.
 All tables are in the appendix of the paper.
 
+## Figures
+![GHQ-12 item profiles by latent state](figures/Figure1_item_profiles.png)
+![Predicted transition probabilities by employment transition](figures/Figure2_transitions.png)
+
 ## Files
 - [`Transitions_in_Employment_and_Wellbeing_with_R.pdf`](Transitions_in_Employment_and_Wellbeing_with_R.pdf): full paper
 - [`ukhls_employment_lta.R`](ukhls_employment_lta.R): data extraction, sample selection,
