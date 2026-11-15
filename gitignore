@@ -1,0 +1,12 @@
+# Understanding Society (UKHLS) data may not be redistributed (End User Licence)
+UKDA-*/
+*.dta
+*.sav
+*.rds
+*.RData
+*.Rda
+
+# R session files
+.Rhistory
+.Rproj.user/
+*.Rproj
