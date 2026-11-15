@@ -4,9 +4,15 @@
 # (UKHLS) waves 6-10
 # =============================================================================
 
+# DATA: not included. Understanding Society (SN 6614, End User Licence) cannot be
+# redistributed. Register with the UK Data Service, download the Stata files and
+# set `project` below. The sample checks (e.g. 46,585 person-waves) refer to the
+# 21st edition used in the paper and may differ for other releases.
+# Do not commit the .dta/.rds files created by this script (see .gitignore).
+
 rm(list = ls())
 
-project <- "C:/Users/LSY/Desktop/Project"
+project <- "path/to/project"   # EDIT: folder that contains UKDA-6614-stata/ and receives all outputs
 ukhls   <- file.path(project, "UKDA-6614-stata/stata/stata14_se/ukhls")
 setwd(project)
 
@@ -66,7 +72,7 @@ df_final <- bind_rows(lapply(waves, extract_wave))
 df_final <- df_final[order(df_final$pidp), ]
 table(df_final$wavename)
 
-saveRDS(df_final, file.path(project, "UKHLS_long_hij.rds"))
+saveRDS(df_final, file.path(project, "UKHLS_long_fghij.rds"))
 
 ghq_raw <- bind_rows(lapply(waves, function(w) {
   d <- read_dta(file.path(ukhls, paste0(w, "_indresp.dta")),
@@ -720,4 +726,3 @@ saveRDS(list(mA = mA, mB = mB, mC = mC, mC4 = mC4), out("lm_models.rds"))
 saveRDS(list(uA = uA, uB = uB, uC = uC, uC_ref = uC_ref), out("lm_models_unbalanced.rds"))
 saveRDS(list(mC_lm = mC_lm, mC_lead = mC_lead, uC_dur = uC_dur,
              uC_dur_ref = uC_dur_ref, mC_drop = mC_drop), out("lm_models_extra.rds"))
-
